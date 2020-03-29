@@ -1,14 +1,25 @@
 def intersection(list1, list2)
-  new_array = []
+  hash = {}
+  array = []
 
-  list1.each do |num|
-    list2.each do |num2|
-      if num == num2
-        new_array << num
-        break
+  list1.each do |i|
+    if hash[i/10]
+      hash[i/10] << i
+    else
+      hash[i/10] = [i]
+    end
+  end
+
+  list2.each do |i|
+    if hash[i/10]
+      hash[i/10].each do |x|
+        if i == x
+          array << i
+          break
+        end
       end
     end
   end
 
-  return new_array
+  return array
 end
