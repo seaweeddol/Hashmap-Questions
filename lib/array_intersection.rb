@@ -1,7 +1,8 @@
+# Time complexity: O(n^2)
+# Space complexity: O(n)
+
 def intersection(list1, list2)
   hash = {}
-  array = []
-
   list1.each do |i|
     if hash[i/10]
       hash[i/10] << i
@@ -10,6 +11,7 @@ def intersection(list1, list2)
     end
   end
 
+  array = []
   list2.each do |i|
     if hash[i/10]
       hash[i/10].each do |x|
